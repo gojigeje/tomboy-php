@@ -2,6 +2,7 @@ Ok we need to link tomboy notes folder here.. (where all the .note file placed)
 On my laptop (Ubuntu 12.04 ~ Tomboy 1.12.0) it located on ~/.local/share/tomboy
 
 Link it here as 'tomboy' folder:
+   $ cd tomboy/
    $ ln -s ~/.local/share/tomboy tomboy
 
 and you ready :)
