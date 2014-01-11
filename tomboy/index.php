@@ -1,5 +1,5 @@
 <?php 
-  include 'tomboy.php';
+  include 'include/tomboy.php';
 
   if ($_REQUEST["note"] == "") {
      $active = "active";
@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.3/united/bootstrap.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="offcanvas.css" rel="stylesheet">
+    <link href="include/offcanvas.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -79,9 +79,6 @@
                <p>Hai.. WebApp ini akan menampilkan catatan Tomboy Notes yang ada di laptopnya Goji.</p>
                <p>Klik pada judul catatan di sebelah kiri untuk menampilkan isinya :)</p>
              </div>
-             <div class="well">
-                NB: Catatan ini realtime lo, jadi begitu si Goji mengupdate catatan di aplikasi Tomboy Notes yang ada di laptopnya, maka catatan yang ada di sini juga ikutan update. :D (<a href="/?note=8c20e1e3-9250-43b4-a212-4557d1f31906">Klik untuk membaca CHANGELOG</a>).
-             </div>
           <?php else:
             $notes = getNotes();
             $note = $notes[$_REQUEST["note"]];
@@ -112,6 +109,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script src="offcanvas.js"></script>
+    <script src="include/offcanvas.js"></script>
   </body>
 </html>
