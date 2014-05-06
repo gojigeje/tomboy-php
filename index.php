@@ -86,7 +86,7 @@
 
             <div class="row">
                <div class="well col-12">
-                  <?php echo autolink($note["content"]["text"], array("target"=>"_blank"));?>
+                  <?php echo finalcek(autolink($note["content"]["text"], array("target"=>"_blank")));?>
                </div>
             </div><!--/row-->
 
