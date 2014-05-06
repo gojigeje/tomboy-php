@@ -4,6 +4,58 @@
   $TOMBOY_PATH = "tomboy";
   $GREETING = "tomboy@gojibuntu";
 
+  // GET CLIENT IP 
+  function getRealIpAddr()
+  {
+    if (!empty($_SERVER['HTTP_CLIENT_IP']))
+    //check ip from share internet
+    {
+      $ip=$_SERVER['HTTP_CLIENT_IP'];
+    }
+    elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+    //to check ip is pass from proxy
+    {
+      $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+    }
+    else
+    {
+      $ip=$_SERVER['REMOTE_ADDR'];
+    }
+    return $ip;
+  }
+  // DETERMINE LOCAL / NOT?
+  function isLocal($a) {
+     if ($a=="127.0.0.1") {
+        $return = "localhost";
+     } elseif (substr($a, 0, 10) === '192.168.2.') {
+        $return = "192.168.2.2";
+     } else {
+        $return = "tomboy.sejak.tk";
+     }
+     return $return;
+  }
+
+  // goji add private & protected
+  function finalcek($str) {
+    $lokal = isLocal(getRealIpAddr());
+
+    // cek private
+    if (strpos($str,'[tomboy-private]') !== false) {
+      if ($lokal == "tomboy.sejak.tk") {
+        return "<h1>[private note]</h1><br>For localhost's eyes only [o_O]";
+      } else {
+        return "$str";
+      }
+
+    } elseif (strpos($str,'[tomboy-protected]') !== false) {
+        return "[protected note]";
+
+    } else {
+      return $str;
+    }
+
+  }
+
   // goji fix
   // autolink --> http://code.seebz.net/p/autolink-php/
   function autolink($str, $attributes=array()) {
